@@ -4,7 +4,7 @@ interface WeatherCondition {
   description: string;
   icon: string;
 }
-export interface CurrentWeather {
+export interface CurrentWeatherData {
   coord: {
     lon: number;
     lat: number;

@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { CurrentWeather } from "./APIs.types";
+import type { CurrentWeatherData } from "./APIs.types";
 
 /* const API_KEY = import.meta.env.VITE_OWN_APIKEY;
  */
@@ -13,8 +13,8 @@ const BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
 const FAKE_SLOW_API = true;
 const FAKE_SLOW_API_DELAY = 2000;
 
-export const getCurrentWeather = async (city: string) => {
-  const res = await axios.get<CurrentWeather>(BASE_URL, {
+export const getCurrentWeatherData = async (city: string) => {
+  const res = await axios.get<CurrentWeatherData>(BASE_URL, {
     params: {
       q: city,
       units: "metric",
