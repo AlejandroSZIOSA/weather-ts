@@ -4,34 +4,36 @@ import viteLogo from "./assets/vite.svg";
 import heroImg from "./assets/hero.png"; */
 import "./App.css";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { CardWeather } from "./components/CardWeather/CardWeather";
 import { SearchCity } from "./components/SearchCity/SearchCity";
 import { getCurrentWeatherData } from "./services/APIs";
+import { type WeatherData } from "./services/APIs.types";
 
-interface CurrentWeather {
-  base: string;
-  main: {
-    temp: number;
-  };
-}
+export type CustomWeatherDataType = Pick<
+  WeatherData,
+  "name" | "main" | "sys" | "wind"
+>;
 
 function App() {
-  const [currentWeather, setCurrentWeather] = useState<CurrentWeather | null>();
+  const [currentDataWeather, setCurrentWeather] =
+    useState<CustomWeatherDataType | null>(null);
 
-  useEffect(() => {
-    getCurrentWeatherData("santiago").then((data) => {
-      setCurrentWeather(data);
-    });
-  }, []);
-
-  console.log(currentWeather);
+  const handleSearch = async (location: string) => {
+    const data = await getCurrentWeatherData(location);
+    setCurrentWeather(data);
+  };
 
   return (
-    <main>
-      <SearchCity />
-      <CardWeather />
-    </main>
+    <>
+      <header>
+        <h1>Wheather</h1>
+      </header>
+      <main>
+        <SearchCity onSearch={handleSearch} />
+        {currentDataWeather && <CardWeather data={currentDataWeather} />}
+      </main>
+    </>
   );
 }
 

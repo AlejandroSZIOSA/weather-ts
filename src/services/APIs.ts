@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { CurrentWeatherData } from "./APIs.types";
+import type { WeatherData } from "./APIs.types";
 
 /* const API_KEY = import.meta.env.VITE_OWN_APIKEY;
  */
@@ -14,7 +14,7 @@ const FAKE_SLOW_API = true;
 const FAKE_SLOW_API_DELAY = 2000;
 
 export const getCurrentWeatherData = async (city: string) => {
-  const res = await axios.get<CurrentWeatherData>(BASE_URL, {
+  const res = await axios.get<WeatherData>(BASE_URL, {
     params: {
       q: city,
       units: "metric",
