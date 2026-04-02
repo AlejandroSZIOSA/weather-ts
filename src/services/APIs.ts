@@ -7,7 +7,7 @@ import type { WeatherData } from "./APIs.types";
 /* https://api.openweathermap.org/data/2.5/weather?appid=KEY=santiago
  */
 
-const API_KEY = import.meta.env.VITE_OWN_APIKEY;
+const API_KEY = import.meta.env["VITE_OWN_APIKEY"];
 
 const BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
 const FAKE_SLOW_API = true;

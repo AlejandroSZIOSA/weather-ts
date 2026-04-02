@@ -5,10 +5,10 @@ import heroImg from "./assets/hero.png"; */
 import "./App.css";
 
 import { useState } from "react";
-import { CardWeather } from "./components/CardWeather/CardWeather";
-import { SearchCity } from "./components/SearchCity/SearchCity";
-import { getCurrentWeatherData } from "./services/APIs";
-import { type WeatherData } from "./services/APIs.types";
+import { CardWeather } from "@/components/CardWeather/CardWeather";
+import { SearchCity } from "@/components/SearchCity/SearchCity";
+import { getCurrentWeatherData } from "@/services/APIs";
+import { type WeatherData } from "@/services/APIs.types";
 
 export type CustomWeatherDataType = Pick<
   WeatherData,

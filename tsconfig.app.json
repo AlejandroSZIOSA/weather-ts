@@ -18,11 +18,33 @@
 
     /* Linting */
     "strict": true,
+
+    /*     customized rules:
+     */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "allowUnusedLabels": false,
+    /*     2-fix
+     */ "paths": {
+      "@/*": ["./src/*"]
+    },
+    "allowUnreachableCode": false,
+    /*  optional   ------------
+     */
+    "noUncheckedIndexedAccess": true,
+    "noPropertyAccessFromIndexSignature": true,
+    /*  optional 2    ------------
+     */
+    "noImplicitOverride": true,
+    "noErrorTruncation": false, //details errors
+
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    /*     js
+     */
+    "allowJs": null
   },
   "include": ["src"]
 }
