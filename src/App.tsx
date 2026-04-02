@@ -49,11 +49,15 @@ function App() {
       <header>
         <h1>Wheather</h1>
       </header>
-      <main className="home_container">
-        <SearchCity onSearch={handleSearch} />
-        {isLoading && <Loading />}
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        {currentDataWeather && <CardWeather data={currentDataWeather} />}
+      <main className="home__container">
+        <div>
+          <SearchCity onSearch={handleSearch} />
+          {isLoading && <Loading />}
+          {error && <p style={{ color: "red" }}>{error}</p>}
+        </div>
+        <div className="inner__container">
+          {currentDataWeather && <CardWeather data={currentDataWeather} />}
+        </div>
       </main>
     </>
   );
