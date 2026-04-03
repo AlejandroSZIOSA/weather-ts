@@ -1,4 +1,20 @@
-.container {
+.cardWeatherContainer {
   position: relative;
-  top: 10%;
+  width: 90%;
+  top: 38%;
+}
+
+.cardWeatherHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.cardWeatherDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 10px;
+  margin-top: 5rem;
 }

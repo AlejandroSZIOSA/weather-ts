@@ -1,15 +1,18 @@
-.home__container {
+.message__container {
+  margin: 1.2rem 0 0.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather__container {
+  width: 90vw;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /*  gap: 20px; */
-  padding: 20px;
-}
+  margin-top: 1rem;
 
-.inner__container {
-  margin-top: 4rem;
-  width: 90vw;
-  height: 50vh;
   background: radial-gradient(
     circle,
     #0f23fa 0%,
@@ -17,8 +20,5 @@
     #0fa2fa 64%,
     #0fe7fa 100%
   );
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   /* gap: 20px; */
 }

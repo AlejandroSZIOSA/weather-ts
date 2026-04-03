@@ -1,11 +1,15 @@
-import { type FC, type ReactNode } from "react";
+import React from "react";
+import styles from "./Messages.module.css";
 
-type Props = {
-  children: ReactNode;
+interface MessagesProps {
+  variant: "error" | "success";
+  children: React.ReactNode;
+}
+
+export const Messages: React.FC<MessagesProps> = ({ variant, children }) => {
+  return (
+    <div className={`${styles["messagesContainer"]} ${styles[variant]}`}>
+      {children}
+    </div>
+  );
 };
-
-const Messages: FC<Props> = ({ children }) => {
-  return <div>{children}</div>;
-};
-
-export default Messages;

@@ -9,9 +9,9 @@ import { CardWeather } from "@/components/CardWeather/CardWeather";
 import { SearchCity } from "@/components/SearchCity/SearchCity";
 import { getCurrentWeatherData } from "@/services/APIs";
 import { type WeatherData } from "@/services/APIs.types";
-import Loading from "./components/Loading/Loading";
+import Spinner from "@/components/Spinner/Spinner";
 
-import Message from "./components/Messages/Messages";
+import { Messages } from "@/components/Messages/Messages";
 
 export type CustomWeatherDataType = Pick<
   WeatherData,
@@ -26,6 +26,7 @@ function App() {
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | false>(false);
+  const [success, setSucess] = useState(false);
 
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -33,18 +34,19 @@ function App() {
     setCurrentWeather(null); // Clear previous weather data
     setIsLoading(true);
     setError(false);
-
+    setSucess(false);
     try {
       const data = await getCurrentWeatherData(location);
       setCurrentWeather(data);
       setIsLoading(false);
       setCity("");
+      setSucess(true);
     } catch (err) {
-      if (err instanceof Error) {
+      if (err instanceof Error && err.message.includes("404")) {
         setError("City not found.");
         setCurrentWeather(null);
       } else {
-        setError("An unknown error occurred. Try later!");
+        setError("An unknown error occurred. Try later! :(");
       }
     } finally {
       setIsLoading(false);
@@ -57,18 +59,21 @@ function App() {
       <header>
         <h1>Wheather</h1>
       </header>
-      <main className="home__container">
-        <div>
-          <SearchCity
-            city={city}
-            setCity={setCity}
-            onSearch={handleSearch}
-            inputRef={inputRef}
-          />
+      <main>
+        <SearchCity
+          city={city}
+          setCity={setCity}
+          onSearch={handleSearch}
+          inputRef={inputRef}
+        />
+        <div className="message__container">
+          {isLoading && <Spinner />}
+          {error && <Messages variant="error">{error}</Messages>}
+          {success && (
+            <Messages variant="success">"City has been found."</Messages>
+          )}
         </div>
-        {isLoading && <Loading />}
-        <Message>{error && <p style={{ color: "red" }}>{error}</p>}</Message>
-        <div className="inner__container">
+        <div className="weather__container">
           {currentDataWeather && <CardWeather data={currentDataWeather} />}
         </div>
       </main>

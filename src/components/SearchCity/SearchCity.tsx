@@ -1,11 +1,11 @@
 import { type FC, type SubmitEvent, useEffect } from "react";
+import styles from "./SearchCity.module.css";
 
 interface SearchCityProps {
   city: string;
   setCity: React.Dispatch<React.SetStateAction<string>>;
-
-  onSearch: (city: string) => void;
   inputRef: React.RefObject<HTMLInputElement | null>;
+  onSearch: (city: string) => void;
 }
 
 export const SearchCity: FC<SearchCityProps> = ({
@@ -14,8 +14,6 @@ export const SearchCity: FC<SearchCityProps> = ({
   city,
   setCity,
 }) => {
-  /*   const [city, setCity] = useState(""); */
-
   useEffect(() => {
     inputRef.current?.focus();
   }, [inputRef]);
@@ -29,24 +27,26 @@ export const SearchCity: FC<SearchCityProps> = ({
   const maxInputEntry = city.trim().length == 20;
 
   return (
-    <form onSubmit={handleSubmite}>
+    <form className={styles["formContainer"]} onSubmit={handleSubmite}>
       <label htmlFor="city">City Name</label>
-      <input
-        type="text"
-        placeholder="city"
-        id="city"
-        name="city"
-        maxLength={20}
-        ref={inputRef}
-        onChange={(e) => setCity(e.target.value)}
-        value={city}
-        required
-      />
-      <button type="submit" disabled={minInputEntry || maxInputEntry}>
-        Search
-      </button>
-      {minInputEntry && <p style={{ color: "black" }}>at least 4 character.</p>}
-      {maxInputEntry && <p style={{ color: "black" }}>max 20 characthers.</p>}
+      <div>
+        <input
+          type="text"
+          placeholder="city"
+          id="city"
+          name="city"
+          maxLength={20}
+          ref={inputRef}
+          onChange={(e) => setCity(e.target.value)}
+          value={city}
+          required
+        />
+        <button type="submit" disabled={minInputEntry || maxInputEntry}>
+          Search
+        </button>
+      </div>
+      {minInputEntry && <p>At least 4 characters.</p>}
+      {maxInputEntry && <p>Maximun 20 characthers.</p>}
     </form>
   );
 };
