@@ -1,7 +1,3 @@
-/* import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "./assets/vite.svg";
-import heroImg from "./assets/hero.png"; */
 import "./App.css";
 
 import { useState, useRef } from "react";
@@ -10,6 +6,8 @@ import { SearchCity } from "@/components/SearchCity/SearchCity";
 import { getCurrentWeatherData } from "@/services/APIs";
 import { type WeatherData } from "@/services/APIs.types";
 import Spinner from "@/components/Spinner/Spinner";
+
+import globeIcon from "@/assets/globe-icon.svg";
 
 import { Messages } from "@/components/Messages/Messages";
 
@@ -74,7 +72,7 @@ function App() {
           )}
         </div>
         <div className="weather__container">
-          {!currentDataWeather && <span>🎈</span>}
+          {!currentDataWeather && <img src={globeIcon} />}
           {currentDataWeather && <CardWeather data={currentDataWeather} />}
         </div>
       </main>
