@@ -15,7 +15,7 @@ import { Messages } from "@/components/Messages/Messages";
 
 export type CustomWeatherDataType = Pick<
   WeatherData,
-  "name" | "main" | "sys" | "wind"
+  "name" | "main" | "sys" | "wind" | "weather"
 >;
 
 function App() {
