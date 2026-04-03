@@ -32,7 +32,7 @@ export const SearchCity: FC<SearchCityProps> = ({
       <div>
         <input
           type="text"
-          placeholder="city"
+          placeholder="name"
           id="city"
           name="city"
           maxLength={20}
@@ -45,8 +45,14 @@ export const SearchCity: FC<SearchCityProps> = ({
           Search
         </button>
       </div>
-      {minInputEntry && <p>At least 4 characters.</p>}
-      {maxInputEntry && <p>Maximun 20 characthers.</p>}
+
+      <p style={{ height: "18px" }}>
+        {minInputEntry
+          ? "At least 4 characters."
+          : maxInputEntry
+            ? "Maximun 20 characthers."
+            : null}
+      </p>
     </form>
   );
 };

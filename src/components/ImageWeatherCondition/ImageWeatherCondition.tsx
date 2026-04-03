@@ -13,7 +13,10 @@ const ImageWeatherCondition: React.FC<Props> = ({ data }) => {
         src={`https://openweathermap.org/img/wn/${data.icon}@2x.png`}
         alt={data.description}
       />
-      <span> {data.description} </span>
+      <span>
+        {" "}
+        <h3>{data.description}</h3>{" "}
+      </span>
     </li>
   );
 };
