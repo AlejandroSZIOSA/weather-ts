@@ -74,6 +74,7 @@ function App() {
           )}
         </div>
         <div className="weather__container">
+          {!currentDataWeather && <span>🎈</span>}
           {currentDataWeather && <CardWeather data={currentDataWeather} />}
         </div>
       </main>
