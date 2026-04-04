@@ -24,7 +24,7 @@ function App() {
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | false>(false);
-  const [success, setSucess] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -32,13 +32,13 @@ function App() {
     setCurrentWeather(null); // Clear previous weather data
     setIsLoading(true);
     setError(false);
-    setSucess(false);
+    setSuccess(false);
     try {
       const data = await getCurrentWeatherData(location);
       setCurrentWeather(data);
       setIsLoading(false);
       setCity("");
-      setSucess(true);
+      setSuccess(true);
     } catch (err) {
       if (err instanceof Error && err.message.includes("404")) {
         setError("City not found.");
@@ -48,14 +48,14 @@ function App() {
       }
     } finally {
       setIsLoading(false);
-      inputRef.current?.focus(); //in this case and propouse of the app doesnt need use gards
+      inputRef.current?.focus(); //in this case and propose of the app doesn't need use gards
     }
   };
 
   return (
     <>
       <header>
-        <h1>Wheather</h1>
+        <h1>Weather-app</h1>
       </header>
       <main>
         <SearchCity

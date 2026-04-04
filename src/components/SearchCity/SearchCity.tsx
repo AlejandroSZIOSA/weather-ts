@@ -28,7 +28,7 @@ export const SearchCity: FC<SearchCityProps> = ({
   };
 
   const minInputEntry = city.trim().length < MIN_CITY_NAME_LENGTH;
-  const maxInputEntry = city.trim().length == MAX_CITY_NAME_LENGTH + 1;
+  const maxInputEntry = city.trim().length >= MAX_CITY_NAME_LENGTH + 1;
 
   return (
     <form className={styles["formContainer"]} onSubmit={handleSubmite}>
