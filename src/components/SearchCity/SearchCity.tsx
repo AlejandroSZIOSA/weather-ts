@@ -54,7 +54,7 @@ export const SearchCity: FC<SearchCityProps> = ({
         {minInputEntry
           ? `At least ${MIN_CITY_NAME_LENGTH} characters.`
           : maxInputEntry
-            ? `Maximun ${MAX_CITY_NAME_LENGTH} characthers.`
+            ? `Maximum ${MAX_CITY_NAME_LENGTH} characters.`
             : null}
       </p>
     </form>
