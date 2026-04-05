@@ -76,6 +76,7 @@ function App() {
           {currentDataWeather && <CardWeather data={currentDataWeather} />}
         </div>
       </main>
+      <footer>Source: openweathermap.org</footer>
     </>
   );
 }
