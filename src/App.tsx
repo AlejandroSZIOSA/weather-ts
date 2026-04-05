@@ -76,7 +76,11 @@ function App() {
           {currentDataWeather && <CardWeather data={currentDataWeather} />}
         </div>
       </main>
-      <footer>Source: openweathermap.org</footer>
+      <footer>
+        <a style={{ color: "white" }} href="https://openweathermap.org/">
+          Source: openweathermap.org{" "}
+        </a>
+      </footer>
     </>
   );
 }
