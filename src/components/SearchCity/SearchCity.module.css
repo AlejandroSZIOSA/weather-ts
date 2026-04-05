@@ -31,6 +31,7 @@
   border: none;
   cursor: pointer;
   display: flex;
+  margin-left: 0.5rem;
 }
 .inputContainer button:disabled {
   opacity: 0.5;
