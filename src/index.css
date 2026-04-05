@@ -9,11 +9,7 @@
 }
 
 body {
-  /* display: flex;
-  flex-direction: column; */
-  background-color: #d0d0d0;
-  /*  min-height: 100vh; */
-  /*   margin: 0; */
+  background-color: #91d06c;
 }
 
 header {
@@ -23,9 +19,9 @@ header {
   height: 7vh;
   position: sticky;
   top: 0;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   z-index: 1000;
-  background-color: #e9e9e9;
+  background-color: #406093;
 }
 
 main {
@@ -40,12 +36,11 @@ footer {
   display: flex;
   position: absolute;
   bottom: 0;
-  background-color: #0e41fb;
+  background-color: #fff799;
   width: 100%;
   height: 8vh;
   justify-content: center;
   align-items: center;
-  color: white;
 }
 
 h1 {
