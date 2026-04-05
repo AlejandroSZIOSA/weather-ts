@@ -1,5 +1,6 @@
 #root {
   width: auto;
+  height: 100%; /* fix footer position */
 }
 
 * {
@@ -9,7 +10,7 @@
 }
 
 body {
-  background-color: #91d06c;
+  background-color: #f5e9d8;
 }
 
 header {
@@ -21,22 +22,21 @@ header {
   top: 0;
   color: rgb(255, 255, 255);
   z-index: 1000;
-  background-color: #406093;
+  background-color: #3e2c23;
 }
 
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /*  gap: 20px; */
   padding: 20px;
 }
 
 footer {
   display: flex;
-  position: absolute;
-  bottom: 0;
-  background-color: #fff799;
+  position: relative;
+  top: 8.2rem;
+  background-color: #e76f2e;
   width: 100%;
   height: 8vh;
   justify-content: center;
