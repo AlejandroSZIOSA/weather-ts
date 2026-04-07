@@ -19,7 +19,10 @@ export const SearchCity: FC<SearchCityProps> = ({
   setCity,
 }) => {
   useEffect(() => {
-    inputRef.current?.focus();
+    if (!inputRef.current) {
+      return;
+    }
+    inputRef.current.focus();
   }, [inputRef]);
 
   const handleSubmite = (e: SubmitEvent) => {
