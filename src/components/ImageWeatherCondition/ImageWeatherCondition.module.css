@@ -1,5 +1,4 @@
 .imageWeatherListContainer {
   display: flex;
-  flex-wrap: wrap;
   height: auto;
 }

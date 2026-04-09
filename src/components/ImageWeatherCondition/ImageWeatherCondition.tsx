@@ -14,7 +14,6 @@ const ImageWeatherCondition: React.FC<Props> = ({ data }) => {
         alt={data.description}
       />
       <span>
-        {" "}
         <h3>{data.description}</h3>{" "}
       </span>
     </li>
