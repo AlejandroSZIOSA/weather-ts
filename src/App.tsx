@@ -125,13 +125,18 @@ function App() {
           {!currentDataWeather && <img src={globeIcon} />}
           {currentDataWeather && <CardWeather data={currentDataWeather} />}
         </div>
+
         <div className="coords__container">
-          <p style={{ marginLeft: "0.5rem" }}>
-            Longitud: {currentDataWeather && currentDataWeather.coord.lon}
-          </p>
-          <p style={{ marginRight: "0.5rem" }}>
-            Latitude: {currentDataWeather && currentDataWeather.coord.lat}
-          </p>
+          {success && success.isSuccess && (
+            <>
+              <p style={{ marginLeft: "0.5rem" }}>
+                Longitud: {currentDataWeather && currentDataWeather.coord.lon}
+              </p>
+              <p style={{ marginRight: "0.5rem" }}>
+                Latitude: {currentDataWeather && currentDataWeather.coord.lat}
+              </p>
+            </>
+          )}
         </div>
         <div className="currentPositionButton__Container">
           <button onClick={handleMyCurrentPosition}>My Current Position</button>
