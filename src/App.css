@@ -13,7 +13,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 
   background: radial-gradient(
     circle,
@@ -27,4 +27,24 @@
 .weather__container img {
   width: 80px;
   height: auto;
+}
+
+.coords__container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: space-between;
+  /*   gap: 1.5rem; */
+  margin: 1rem 0;
+}
+
+.coords__container p {
+  font-size: 0.9rem;
+  color: #333;
+}
+.currentPositionButton__Container button {
+  background: purple;
+  color: white;
+  padding: 5px;
 }

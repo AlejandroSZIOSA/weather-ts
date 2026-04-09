@@ -16,3 +16,13 @@ export const getCurrentWeatherData = async (city: string) => {
 
   return res.data;
 };
+
+export const getCurrentPositionWeather = async (
+  latitude: number,
+  longitude: number,
+) => {
+  const res = await axios.get<WeatherData>(BASE_API_URL, {
+    params: { lat: latitude, lon: longitude, units: "metric", appid: API_KEY },
+  });
+  return res.data;
+};

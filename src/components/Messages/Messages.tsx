@@ -9,7 +9,7 @@ interface MessagesProps {
 export const Messages: React.FC<MessagesProps> = ({ variant, children }) => {
   return (
     <div className={`${styles["messagesContainer"]} ${styles[variant]}`}>
-      {children}
+      <h3>{children}</h3>
     </div>
   );
 };
