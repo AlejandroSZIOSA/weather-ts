@@ -71,6 +71,7 @@ function App() {
       setSuccess({ operation: "currentPosition", isSuccess: true });
     } catch (err) {
       setError("An unknown error occurred. Try later! :(");
+      console.log("error: ", err);
     } finally {
       setIsLoading(false);
     }
@@ -87,7 +88,7 @@ function App() {
         console.log(latitude, longitude);
       } catch (err) {
         setError("An unknown error occurred. Try later! :(");
-        console.log("error");
+        console.log("error: ", err);
       }
     });
   };
