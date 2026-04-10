@@ -26,20 +26,16 @@ function App() {
   const [currentDataWeather, setCurrentWeather] =
     useState<CustomWeatherDataType | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | false>(false);
+  const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<OperationSuccess | null>(null);
 
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const handleSearch = async (location: string) => {
-    setCurrentWeather(null); // Clear previous weather data
-    setIsLoading(true);
-    setError(false);
-    setSuccess({ operation: "searchByCity", isSuccess: false });
+    resetState("searchByCity");
     try {
       const data = await getCurrentWeatherData(location);
       setCurrentWeather(data);
-      setIsLoading(false);
       setCity("");
       setSuccess({ operation: "searchByCity", isSuccess: true });
     } catch (err) {
@@ -60,10 +56,7 @@ function App() {
     latitude: number,
     longitude: number,
   ) => {
-    setCurrentWeather(null); // Clear previous weather data
-    setIsLoading(true);
-    setError(false);
-    setSuccess({ operation: "currentPosition", isSuccess: false });
+    resetState("currentPosition");
     try {
       const data = await getCurrentPositionWeather(latitude, longitude);
       setCurrentWeather(data);
@@ -81,16 +74,29 @@ function App() {
     navigator.geolocation.getCurrentPosition(async (position) => {
       const { latitude, longitude } = position.coords;
       setIsLoading(true);
-      setError(false);
+      setError(null);
       setSuccess({ operation: "currentPosition", isSuccess: false });
       try {
-        getCurrentPositionWeatherData(latitude, longitude);
+        //fixed
+        await getCurrentPositionWeatherData(latitude, longitude);
         console.log(latitude, longitude);
       } catch (err) {
         setError("An unknown error occurred. Try later! :(");
         console.log("error: ", err);
       }
     });
+  };
+
+  const resetState = (operation: OperationSuccess["operation"]) => {
+    setCurrentWeather(null);
+    setIsLoading(true);
+    setError(null);
+    setSuccess({ operation, isSuccess: false });
+  };
+
+  const successMessage = {
+    searchByCity: "City has been found.",
+    currentPosition: "Your position has been found.",
   };
 
   return (
@@ -108,18 +114,11 @@ function App() {
         <div className="message__container">
           {isLoading && <Spinner />}
           {error && <Messages variant="error">{error}</Messages>}
-          {success &&
-            success.operation === "searchByCity" &&
-            success?.isSuccess && (
-              <Messages variant="success">City has been found.</Messages>
-            )}
-          {success &&
-            success.operation === "currentPosition" &&
-            success?.isSuccess && (
-              <Messages variant="success">
-                Your position has been found.
-              </Messages>
-            )}
+          {success?.isSuccess && (
+            <Messages variant="success">
+              {successMessage[success.operation]}
+            </Messages>
+          )}
         </div>
         <div className="weather__container">
           {!currentDataWeather && <img src={globeIcon} />}
