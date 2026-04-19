@@ -143,7 +143,7 @@ function App() {
       </main>
       <footer>
         <a style={{ color: "black" }} href="https://openweathermap.org/">
-          Source: openweathermap.org
+          source: openweathermap.org
         </a>
       </footer>
     </>
