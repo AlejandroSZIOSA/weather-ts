@@ -1,16 +1,16 @@
 #root {
   width: auto;
-  height: 100%; /* fix footer position */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  background-color: #f5e9d8;
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-}
-
-body {
-  background-color: #f5e9d8;
 }
 
 header {
@@ -30,7 +30,7 @@ main {
   flex-direction: column;
   align-items: center;
   padding: 0.8rem;
-  height: 90vh;
+  height: 85vh;
 }
 
 footer {
@@ -71,4 +71,51 @@ input {
 
 button {
   font-size: 1rem;
+}
+
+@media (min-width: 1040px) {
+  /*   #root {
+    border-left: 2px solid rgb(0, 0, 0);
+    border-right: 2px solid rgb(0, 0, 0);
+  } */
+
+  body {
+    width: 30vw;
+    margin: 0 auto;
+    background-color: #111;
+    background-image:
+      linear-gradient(#333 1px, transparent 1px),
+      linear-gradient(90deg, #333 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  header {
+    position: relative;
+    width: 30vw;
+  }
+
+  main {
+    height: auto;
+    background-color: #f5e9d8;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.375rem;
+  }
+
+  p {
+    font-size: 1.125rem;
+  }
+
+  label {
+    font-size: 1.25rem;
+  }
 }

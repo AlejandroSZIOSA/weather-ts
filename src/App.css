@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: stretch;
 }
 
 .weather__container {
@@ -46,4 +47,11 @@
   background: purple;
   color: white;
   padding: 5px;
+}
+
+@media (min-width: 1040px) {
+  .weather__container {
+    width: stretch;
+    margin: 0 auto;
+  }
 }
